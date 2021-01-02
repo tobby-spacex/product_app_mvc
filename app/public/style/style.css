@@ -1,0 +1,115 @@
+
+
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    text-align: center;
+    height:40px;
+}
+
+.about-border {
+    display: block;
+    width: 1100px;
+    height: 3px;
+    background: #7e7e7e;
+    margin: 20px auto;
+}
+
+
+.card{
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 2%;
+    margin-bottom: 1%;
+
+}
+
+.cardt{
+    line-height: 80%;
+  }
+
+  .page-header{
+    position:absolute;
+    left:20px;
+    top:20px;
+  }
+
+  .text-right{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-right: 8px;
+  }
+
+
+  .boxs div{
+    border: 1px #ccc solid;
+    padding: 10px;
+  }
+  .boxs{
+    display: flex;
+    /* display: none; */
+
+  }
+  .form{
+    display: none;
+  }
+  #dvd{
+    width: 300px;
+    height: 130px;
+  }
+
+  #furniture{
+    /* width: 325px;
+    height: 210px; */
+    width: 550px;
+    height: 270px;
+  }
+
+  #furniture input{
+
+    float: right;
+    width: 150px;
+  }
+
+
+  #furniture label{
+    position: static;
+  }
+
+
+
+  #dvd input{
+
+    float: right;
+    width: 150px;
+  }
+
+  #book input{
+
+    float: right;
+    width: 150px;
+  }
+
+
+  #book{
+    width: 300px;
+    height: 130px;
+  }
+
+.form-group input{
+    margin-left: 10%;
+}
+
+.form-group select{
+  margin-left: 10.5em;
+}
+
+.form-group label{
+  position: absolute;
+  margin-left: 1%;
+}
