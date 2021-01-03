@@ -1,12 +1,14 @@
 <?php
 
-class Product_Book extends Main_Product_Class
+class Product_Furniture extends Main_Product_Class
 {
     private $id;
     private $sku;
     private $name;
     private $price;
-    private $weight;
+    private $height;
+    private $width;
+    private $length;
 
     public function __construct(){
         parent::__construct();
@@ -45,12 +47,28 @@ class Product_Book extends Main_Product_Class
         return $this->price;
     }
 
-    function setWeight($weight){
-        $this->weight = $weight;
+    function setHeight($height){
+        $this->height = $height;
     }
 
-    function getWeight(){
-        return $this->weight;
+    function getHeight(){
+        return $this->height;
+    }
+
+    function setWidth($width){
+        $this->width = $width;
+    }
+
+    function getWidth(){
+        return $this->width;
+    }
+
+    function setLength($length){
+        $this->length = $length;
+    }
+
+    function getLength(){
+        return $this->length;
     }
 
 
@@ -59,7 +77,6 @@ class Product_Book extends Main_Product_Class
         $query = "SELECT $fields FROM $tablename ";
         // $result = mysqli_query($this->db->getConnection(), $query);
         $result = $this->db->getConnection()->query($query);
-
         while($row = mysqli_fetch_assoc($result)){
                 $array[] = $row;
             }
@@ -67,7 +84,8 @@ class Product_Book extends Main_Product_Class
     }
 
     public function insertProducts(){
-        $query = "INSERT INTO book (book_sku, book_name, book_price, b_weight) VALUES ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getWeight(). "') ";
+        $query = "INSERT INTO furniture (f_sku, f_name, f_price, f_height, f_width, f_length) VALUES
+        ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getHeight(). "','" . $this->getWidth(). "','" . $this->getLength(). "') ";
 
         $result = mysqli_query($this->db->getConnection(), $query);
         return $result;
@@ -78,5 +96,4 @@ class Product_Book extends Main_Product_Class
     public function deleteProductById($product_Id){
 
     }
-
 }

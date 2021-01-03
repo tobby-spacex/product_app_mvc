@@ -1,19 +1,20 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/header.php' ?>
 <?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/dvd_model.php'?>
 <?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/book_model.php'?>
-
+<?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/furniture_model.php'?>
 
 <div class="container">
 <div class="row">
 
 <div class="col-sm">
 
-<form action=" " method="post">
+<form action="product_delete" method="post">
 
     <div class="text-right">
     <h3 class="page-header" id="text1"> Product List</h3>
         <button type="button" class="btn btn-primary" id="button1" onClick="document.location.href ='/product_add'">Add</button>
         <button type="submit" class="btn btn-danger" name="delete" id="button2" onclick="return validateForm();">Mass Delete</button>
+
     </div>
 
      </div>

@@ -10,4 +10,6 @@ abstract class Main_Product_Class
 
     abstract public function insertProducts();
 
+    abstract public function deleteProductById($product_Id);
+
 }

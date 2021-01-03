@@ -9,6 +9,7 @@ class Product_Dvd extends Main_Product_Class
     private $price;
     private $size;
 
+
     public function __construct(){
         parent::__construct();
     }
@@ -72,12 +73,23 @@ class Product_Dvd extends Main_Product_Class
     public function insertProducts(){
         $query = "INSERT INTO dvd (dvd_sku, dvd_name, dvd_price, size_mb) VALUES ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getSize(). "')";
         // $result = $this->db->getConnection()->query($query);
-
         $result = mysqli_query($this->db->getConnection(), $query);
-
         // $result = $this->db->getConnection()->data_input($query);
         return $result;
-
     }
+
+    public function deleteProductById($product_Id){
+        $query = "DELETE FROM dvd WHERE id='$product_Id' ";
+        $result = mysqli_query($this->db->getConnection(), $query);
+        return $result;
+   }
+
+    // public function deleteProductById($product_Id){
+    //     $query = "DELETE FROM dvd WHERE id='$this->getId(). '";
+    //     $result = mysqli_query($this->db->getConnection(), $query);
+    //     return $result;
+    // }
+
+
 
 }

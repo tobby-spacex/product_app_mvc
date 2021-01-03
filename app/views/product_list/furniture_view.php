@@ -1,6 +1,6 @@
     <!-- Fetching furniture -->
     <?php
-         foreach((array) $data3 as $furniture){
+         foreach((array) $data_furniture as $furniture){
     ?>
 
     <div class="card" style="width: 12rem; height: 12rem;">
