@@ -94,6 +94,8 @@ class Product_Furniture extends Main_Product_Class
 
 
     public function deleteProductById($product_Id){
-
+        $query = "DELETE FROM furniture WHERE id='$product_Id' ";
+        $result = mysqli_query($this->db->getConnection(), $query);
+        return $result;
     }
 }

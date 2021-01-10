@@ -34,7 +34,7 @@ class Core {
         $file_name = 'controllers/'.$url[0].'.php';
 
         if(file_exists($file_name)){
-            //Podluchenie contrllers
+            //Podluchenie controllers
             require_once $file_name;
             $product_add = new $url[0];
 

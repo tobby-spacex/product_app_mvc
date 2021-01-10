@@ -68,15 +68,15 @@ class Product_Book extends Main_Product_Class
 
     public function insertProducts(){
         $query = "INSERT INTO book (book_sku, book_name, book_price, b_weight) VALUES ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getWeight(). "') ";
-
         $result = mysqli_query($this->db->getConnection(), $query);
         return $result;
-
     }
 
 
     public function deleteProductById($product_Id){
-
+        $query = "DELETE FROM book WHERE id='$product_Id' ";
+        $result = mysqli_query($this->db->getConnection(), $query);
+        return $result;
     }
 
 }

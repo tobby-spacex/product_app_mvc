@@ -10,8 +10,49 @@ class Product_add extends Controller{
 
     public function insertData(){
 
+        $sku = filter_input(INPUT_POST, 'sku');
+        $name = filter_input(INPUT_POST, 'name');
+        $price = filter_input(INPUT_POST, 'price');
+        $size_mb = filter_input(INPUT_POST, 'size_mb');
+
+        $book_weight = filter_input(INPUT_POST, 'b_weight');
+
+        $height = filter_input(INPUT_POST, 'height');
+        $width = filter_input(INPUT_POST, 'width');
+        $length = filter_input(INPUT_POST, 'length');
+
+
+        $product_Validation = new Product_Validation();
+        $product_Validation->nameValidation($sku, $name, $price, $size_mb, $book_weight, $height, $width, $length);
+
+
+            // if(empty($sku)){
+            //     $sku_error = 'Please insert SKU.';
+            // }elseif(iconv_strlen($sku)<5){
+            //     $sku_error = 'sku must be at least 5 characters.';
+            // }
+
+            // if(empty($name)){
+            //     $name_error = 'Please insert name.';
+            // }elseif(iconv_strlen($name)<3){
+            //     $name_error = 'name must be at least 3 characters.';
+            // }
+
+            // if(empty($price)){
+            //     $price_error = 'Please insert price.';
+            // }elseif(preg_match( "/[^0-9,.]/", $price)){
+            //     $price_error = 'Only integers and rational numbers are allowed.';
+            // }
+
+            // header("Location: http://product-app/product_add");
+
+            // require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/product_add/index.php';
+
+
+
     if(isset($_POST["submit"]))
     {
+
         if(isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['size_mb']) ){
             if(!empty($_POST['sku']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['size_mb'])){
                 $InsertData = new Product_Dvd();
@@ -64,12 +105,6 @@ class Product_add extends Controller{
 
 
     }
-
-
-
-
-
-
 
     }
 }

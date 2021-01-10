@@ -1,4 +1,5 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/header.php' ?>
+<!-- <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/app/controllers/product_add.php';?> -->
 
 <div class="container">
 <div class="row">
@@ -7,6 +8,7 @@
 
 <!-- <form> -->
 <form id="myForm" name="dvd" method="post" action="product_add/insertData" class="needs-validation" novalidate>
+<!-- <form id="myForm" name="dvd" method="post" action="../libraries/test.php" class="needs-validation" novalidate> -->
     <div class="text-right">
     <h3 class="page-header" id="text1"> Product Add</h3>
         <!-- <button type="submit" class="btn btn-primary" id="button1" >Save</button> -->
@@ -23,20 +25,46 @@
         <label>SKU</label>
         <input type="text" name="sku" id="sku" placeholder="sku" value="">
 
-        <span class="error">*</span>
+
+        <span class="error">* <?php if(isset($sku_error)){?><?php echo $sku_error;?> <?php }
+
+        if(isset($_SESSION['sku_error'])){
+            echo $_SESSION['sku_error'];
+            unset($_SESSION['sku_error']);
+        }
+
+        ?> </span>
+
+
     </div>
 
     <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" placeholder="name" value="">
-        <span class="error">* </span>
+        <span class="error">* <?php
+
+        if(isset($_SESSION['name_error'])){
+            echo $_SESSION['name_error'];
+            unset($_SESSION['name_error']);
+        }
+
+        ?></span>
+
+        <!-- <span class="error">* <?php if(isset($name_error)){?><?php echo $name_error;?> <?php } ?> </span> -->
+
     </div>
 
 
     <div class="form-group">
         <label>Price($)</label>
         <input type="text" name="price" placeholder="123.4" value="">
-        <span class="error">*  </span>
+        <span class="error">* <?php
+
+        echo isset($_SESSION['price_error']) ?  $_SESSION['price_error'] : null;
+        unset($_SESSION['price_error']);
+
+        ?> </span>
+
     </div>
 
 
@@ -60,7 +88,13 @@
             <label>Size (MB)</label>
             <input type="text" name="size_mb" >
             <br>
-            <span class="error"><small></span>
+            <span class="error"><small>
+            <?php
+                echo isset($_SESSION['mb_error']) ?  $_SESSION['mb_error'] : null;
+                unset($_SESSION['mb_error']);
+            ?>
+
+             </span>
 
             <p class="">"Please, provide size"</p>
     </div>
@@ -106,3 +140,22 @@
 </div>  <!-- container -->
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/footer.php' ?>
+
+
+
+
+<!-- if(isset($_SESSION['message'])){
+    if($_SESSION['message'] == 'success'){
+        echo "Yeah !";
+    }else{
+        echo "Problem";
+    }
+    unset($_SESSION['message']);
+}
+MESSAGE
+
+    if(mail()){
+    $_SESSION['message']='success';
+}else{
+    $_SESSION['message']='error';
+} -->
