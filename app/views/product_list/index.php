@@ -1,7 +1,6 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/header.php' ?>
-<?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/dvd_model.php'?>
-<?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/book_model.php'?>
-<?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/furniture_model.php'?>
+
+<?php require_once  $_SERVER['DOCUMENT_ROOT'] .'/app/models/products_display.php'?>
 
 <div class="container">
 <div class="row">

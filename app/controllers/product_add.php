@@ -23,43 +23,26 @@ class Product_add extends Controller{
 
 
         $product_Validation = new Product_Validation();
-        $product_Validation->nameValidation($sku, $name, $price, $size_mb, $book_weight, $height, $width, $length);
+        $product_Validation->productValidation($sku, $name, $price, $size_mb, $book_weight, $height, $width, $length);
 
 
-            // if(empty($sku)){
-            //     $sku_error = 'Please insert SKU.';
-            // }elseif(iconv_strlen($sku)<5){
-            //     $sku_error = 'sku must be at least 5 characters.';
-            // }
-
-            // if(empty($name)){
-            //     $name_error = 'Please insert name.';
-            // }elseif(iconv_strlen($name)<3){
-            //     $name_error = 'name must be at least 3 characters.';
-            // }
-
-            // if(empty($price)){
-            //     $price_error = 'Please insert price.';
-            // }elseif(preg_match( "/[^0-9,.]/", $price)){
-            //     $price_error = 'Only integers and rational numbers are allowed.';
-            // }
-
-            // header("Location: http://product-app/product_add");
-
-            // require_once $_SERVER['DOCUMENT_ROOT'] .'/app/views/product_add/index.php';
+        // $InsertData = new Product_Dvd();
+        // !isset($_SESSION['sku_error']) && !isset($_SESSION['name_error']) && !isset($_SESSION['price_error']) && !isset($_SESSION['mb_error']) ?
+        // $InsertData->setSku($sku):
+        // $InsertData->setName($name):
+        // $InsertData->setPrice($price):
+        // $InsertData->setSize($size_mb)
+        // header("Location: http://product-app/");
 
 
+        if(isset($sku) && isset($name) && isset($price) && isset($size_mb) ){
+            if(!empty($sku) && !empty($name) && !empty($price) && !empty($size_mb)){
 
-    if(isset($_POST["submit"]))
-    {
-
-        if(isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['size_mb']) ){
-            if(!empty($_POST['sku']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['size_mb'])){
                 $InsertData = new Product_Dvd();
-                $InsertData->setSku($_POST['sku']);
-                $InsertData->setName($_POST['name']);
-                $InsertData->setPrice($_POST['price']);
-                $InsertData->setSize($_POST['size_mb']);
+                $InsertData->setSku($sku);
+                $InsertData->setName($name);
+                $InsertData->setPrice($price);
+                $InsertData->setSize($size_mb);
 
                 if($InsertData->insertProducts())
                 {
@@ -67,6 +50,26 @@ class Product_add extends Controller{
                 }
             }
         }
+
+
+
+
+
+
+        // if(isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['size_mb']) ){
+        //     if(!empty($_POST['sku']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['size_mb'])){
+        //         $InsertData = new Product_Dvd();
+        //         $InsertData->setSku($_POST['sku']);
+        //         $InsertData->setName($_POST['name']);
+        //         $InsertData->setPrice($_POST['price']);
+        //         $InsertData->setSize($_POST['size_mb']);
+
+        //         if($InsertData->insertProducts())
+        //         {
+        //             header("Location: http://product-app/");
+        //         }
+        //     }
+        // }
 
         if(isset($_POST['sku']) && isset($_POST['name']) && isset($_POST['price']) && isset($_POST['b_weight']) ){
             if(!empty($_POST['sku']) && !empty($_POST['name']) && !empty($_POST['price']) && !empty($_POST['b_weight'])){
@@ -104,7 +107,7 @@ class Product_add extends Controller{
         }
 
 
-    }
+    // }
 
     }
 }

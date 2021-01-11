@@ -13,7 +13,6 @@ require_once 'Product_Furniture.php';
 require_once 'Product_Validation.php';
 
 
-// require_once 'models/product_delete.php';
 
 
 $core = new Core();
