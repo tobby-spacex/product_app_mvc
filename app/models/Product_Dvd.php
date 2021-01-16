@@ -56,40 +56,42 @@ class Product_Dvd extends Main_Product_Class
 
 
 
+    // public function insertProducts(){
+    //     $query = "INSERT INTO dvd (dvd_sku, dvd_name, dvd_price, size_mb) VALUES ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getSize(). "')";
+    //     // $result = $this->db->getConnection()->query($query);
+    //     $result = mysqli_query($this->db->getConnection(), $query);
+    //     // $result = $this->db->getConnection()->data_input($query);
+    //     return $result;
+    // }
 
-   // Method for fetching product from Database
-     public function getProducts($fields, $tablename){
-        $array = array();
-        $query = "SELECT $fields FROM $tablename ";
-        $result = mysqli_query($this->db->getConnection(), $query);
-        // $result = $this->db->getConnection()->query($query);
-
-        while($row = mysqli_fetch_assoc($result)){
-                $array[] = $row;
-            }
-            return $array;
-    }
-
+    //To protect against SQL injection
     public function insertProducts(){
-        $query = "INSERT INTO dvd (dvd_sku, dvd_name, dvd_price, size_mb) VALUES ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getSize(). "')";
+        $query = "INSERT INTO dvd (dvd_sku, dvd_name, dvd_price, size_mb) VALUES (?, ?, ? ,?)";
         // $result = $this->db->getConnection()->query($query);
-        $result = mysqli_query($this->db->getConnection(), $query);
-        // $result = $this->db->getConnection()->data_input($query);
+        $stmt = mysqli_prepare($this->db->getConnection(), $query);
+        $stmt->bind_param("sssd", $this->getSku(), $this->getName(), $this->getPrice(), $this->getSize());
+        $result = $stmt->execute();
         return $result;
     }
+
+
+   // Method for fetching product from Database
+   public function getProducts($fields, $tablename){
+    $array = array();
+    $query = "SELECT $fields FROM $tablename ";
+    $result = mysqli_query($this->db->getConnection(), $query);
+    while($row = mysqli_fetch_assoc($result)){
+            $array[] = $row;
+        }
+        return $array;
+}
+
 
     public function deleteProductById($product_Id){
         $query = "DELETE FROM dvd WHERE id='$product_Id' ";
         $result = mysqli_query($this->db->getConnection(), $query);
         return $result;
    }
-
-    // public function deleteProductById($product_Id){
-    //     $query = "DELETE FROM dvd WHERE id='$this->getId(). '";
-    //     $result = mysqli_query($this->db->getConnection(), $query);
-    //     return $result;
-    // }
-
 
 
 }

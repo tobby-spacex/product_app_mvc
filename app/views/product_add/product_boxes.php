@@ -12,8 +12,8 @@
         ?>
 
          </span>
-
-        <p class="">"Please, provide size"</p>
+         <br>
+        <strong class="">Please, provide size</strong>
 </div>
 
 
@@ -53,7 +53,7 @@
          </span>
         <br>
 
-        <p class="">"Please,provide dimensions"</p>
+        <strong class="">Please,provide dimensions</strong>
 </div>
 
 
@@ -67,8 +67,9 @@
             unset($_SESSION['boo_error']);
         ?>
         </span>
+        <br>
 
-        <p class="">"Please, provide weight"</p>
+        <strong class="">Please, provide weight</strong>
 </div>
 
 </div>

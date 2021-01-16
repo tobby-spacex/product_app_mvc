@@ -35,14 +35,6 @@ class Database
       $this->conn->close();
   }
 
-
-
-
-
-
-
-
-
     //     $dsn = 'mysql:host='.$this ->host . '; dbname=' . $this ->dbname;
 
     //      $options = array(

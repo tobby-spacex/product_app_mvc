@@ -72,24 +72,32 @@ class Product_Furniture extends Main_Product_Class
     }
 
 
-     public function getProducts($fields, $tablename){
+    // public function insertProducts(){
+    //     $query = "INSERT INTO furniture (f_sku, f_name, f_price, f_height, f_width, f_length) VALUES
+    //     ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getHeight(). "','" . $this->getWidth(). "','" . $this->getLength(). "') ";
+    //     $result = mysqli_query($this->db->getConnection(), $query);
+    //     return $result;
+    // }
+
+    //To protect against SQL injection
+    public function insertProducts(){
+        $query = "INSERT INTO furniture (f_sku, f_name, f_price, f_height, f_width, f_length) VALUES (?, ?, ?, ?, ?, ?)";
+        // $result = $this->db->getConnection()->query($query);
+        $stmt = mysqli_prepare($this->db->getConnection(), $query);
+        $stmt->bind_param("sssdss", $this->getSku(), $this->getName(), $this->getPrice(), $this->getHeight(), $this->getWidth(), $this->getLength());
+        $result = $stmt->execute();
+        return $result;
+    }
+
+
+    public function getProducts($fields, $tablename){
         $array = array();
         $query = "SELECT $fields FROM $tablename ";
-        // $result = mysqli_query($this->db->getConnection(), $query);
         $result = $this->db->getConnection()->query($query);
         while($row = mysqli_fetch_assoc($result)){
                 $array[] = $row;
             }
             return $array;
-    }
-
-    public function insertProducts(){
-        $query = "INSERT INTO furniture (f_sku, f_name, f_price, f_height, f_width, f_length) VALUES
-        ('". $this->getSku() . "','" . $this->getName(). "','" . $this->getPrice(). "','" . $this->getHeight(). "','" . $this->getWidth(). "','" . $this->getLength(). "') ";
-
-        $result = mysqli_query($this->db->getConnection(), $query);
-        return $result;
-
     }
 
 

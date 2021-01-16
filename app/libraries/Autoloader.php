@@ -15,7 +15,4 @@ require_once 'models/Product_Furniture.php';
 
 require_once 'Product_Validation.php';
 
-
-
-
 $core = new Core();
