@@ -11,7 +11,7 @@
 
     <div class="text-right">
     <h3 class="page-header" id="text1"> Product List</h3>
-        <button type="button" class="btn btn-primary" id="button1" onClick="document.location.href ='/product_add'">Add</button>
+        <button type="button" class="btn btn-primary" id="button1" href="<?php session_destroy(); ?>" onClick="document.location.href ='/product_add'">Add</button>
         <button type="submit" class="btn btn-danger" name="delete" id="button2" onclick="return validateForm();">Mass Delete</button>
 
     </div>
