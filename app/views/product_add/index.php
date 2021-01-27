@@ -6,7 +6,9 @@
 <h3 class="page-header" id="text1"> Product Add</h3>
 
 <!-- <form> -->
+<!-- <form id="myForm" name="dvd" method="post" action="product_add/insertData" class="needs-validation" novalidate> -->
 <form id="myForm" name="dvd" method="post" action="product_add/insertData" class="needs-validation" novalidate>
+
     <div class="text-right">
     <h3 class="page-header" id="text1"> Product Add</h3>
         <!-- <button type="submit" class="btn btn-primary" id="button1" >Save</button> -->

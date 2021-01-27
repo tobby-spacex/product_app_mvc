@@ -9,14 +9,14 @@ class Product_add extends Controller{
 
     }
 
-    public function insertData(){
 
+    public function insertData(){
         $sku = filter_input(INPUT_POST, 'sku');
         $name = filter_input(INPUT_POST, 'name');
         $price = filter_input(INPUT_POST, 'price');
         $size_mb = filter_input(INPUT_POST, 'size_mb');
 
-        $book_weight = filter_input(INPUT_POST, 'b_weight');
+            $book_weight = filter_input(INPUT_POST, 'b_weight');
 
         $height = filter_input(INPUT_POST, 'height');
         $width = filter_input(INPUT_POST, 'width');
@@ -58,9 +58,6 @@ class Product_add extends Controller{
 
         $productClass = $products[$product];
         // $productClass->validation($sku, $name, $price, $size_mb);
-        $productClass->validation();
-
+        $productClass->add($_POST);
     }
-
-
 }

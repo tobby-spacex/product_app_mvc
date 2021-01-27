@@ -4,16 +4,42 @@ class DVD
 {
     public function __construct(){
 
+
     }
 
     public static function  redirectToaddPage(){
         header("Location: http://product-app/product_add");
     }
 
+    public function add($data)
+    {
+        if ($this->validation($data))
+        {
+            $this->saveDb($data);
+        };
+        return false;
+    }
 
-    public function validation(){   //$sku, $name, $price, $size_mb
+    private function saveDb($data)
+    {
+        $pd = new Product_Dvd();
+        $pd->setSku($data['sku']);
+        $pd->setName($data['name']);
+        $pd->setPrice($data['price']);
+        $pd->setSize($data['size_mb']);
+        $pd->insertProducts();
+    }
 
-        echo "Pull";
+    private function validation($data){   //$sku, $name, $price, $size_mb
+
+        $fields = ['sku', 'name', 'price' , 'size_mb'];
+        foreach ($fields as $field) {
+            if (!isset($data[$field]))
+            {
+                return false;
+            }
+        }
+        return true;
         // if(empty($sku)){
         // $_SESSION['sku_error']='Please insert SKU.';
         // }elseif(iconv_strlen($sku)<5){
