@@ -52,7 +52,7 @@
 <div class="option">
         <div class="form-group">
         <label for="inputState">Type Switcher</label> <span class="error">*</span>
-        <select id="inputState" class="form-group" > <span class="error">TEST</span>
+        <select name="product"  id="inputState" class="form-group" > <span class="error">TEST</span>
             <option selected>Type Switcher</option>
             <option value="dvd">DVD</option>
             <option value="book">Book</option>

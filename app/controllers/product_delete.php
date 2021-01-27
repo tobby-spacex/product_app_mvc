@@ -19,6 +19,8 @@ class Product_Delete
                 $book_delete->deleteProductById($del_Id);
                 $furniture_delete->deleteProductById($del_Id);
                 header("Location: http://product-app/");
+
+
             }
         }
 

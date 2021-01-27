@@ -6,6 +6,7 @@ require_once 'Core.php';
 require_once 'Controller.php';
 require_once 'View.php';
 require_once 'Main_Product_Class.php';
+require_once 'DVD.php';
 // require_once 'Product_Dvd.php';
 require_once 'models/Product_Dvd.php';
 require_once 'models/Product_Book.php';

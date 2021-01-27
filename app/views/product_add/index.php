@@ -10,7 +10,7 @@
     <div class="text-right">
     <h3 class="page-header" id="text1"> Product Add</h3>
         <!-- <button type="submit" class="btn btn-primary" id="button1" >Save</button> -->
-        <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+        <input type="submit" name="submit" class="btn btn-info" value="Save" />
         <button type="button" class="btn btn-warning" id="button2" onclick="cancelButton();">Cancel </a></button>
 
     </div>
