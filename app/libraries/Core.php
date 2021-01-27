@@ -1,5 +1,6 @@
 <?php
 
+// Here I used conditional statements, since it is most important to understand how the controller is connected.
 class Core {
     public function __construct(){
 

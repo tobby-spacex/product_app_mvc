@@ -1,7 +1,8 @@
 <?php
 
+// this class is not used anywhere, it was used for testing and left as a template.
 session_start();
-class Product_Validation
+class Product_Validation_Test
 {
     public function productValidation($sku, $name, $price, $size_mb, $book_weight, $height, $width, $length ){
 

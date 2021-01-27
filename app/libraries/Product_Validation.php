@@ -1,5 +1,9 @@
 <?php
 
+// In this class, input data is validated. Created three methods that send verified data to the database.
+// Above ternary expressions were created and commented out conditional statements, this was done to make it easier
+// for the reader of the code to understand what the code is doing.
+
 session_start();
 class Product_Validation
 {
@@ -99,6 +103,7 @@ class Product_Validation
     }
 
 
+    // If a session with certain names is not created, then the entered data is considered valid and is sent to the database
 
     public function insertDvd($sku, $name, $price, $size_mb){
 
