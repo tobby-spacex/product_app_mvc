@@ -1,7 +1,7 @@
 <?php
 
 ob_start();
-session_start();
+// session_start();
 class Product_add extends Controller{
     public function __construct(){
         parent:: __construct();
@@ -27,37 +27,17 @@ class Product_add extends Controller{
         // $_SESSION["name"] = $name;
         // $_SESSION["price"] = $price;
 
-
-
-        // $product_Validation = new Product_Validation();
-        // $product_Validation->productValidation($sku, $name, $price, $size_mb, $book_weight, $height, $width, $length);
-
-
-        // if(!isset($_SESSION['mb_error'])){
-        //     $product_Validation->insertDvd($sku, $name, $price, $size_mb);
-        // } elseif(!isset($_SESSION['boo_error'])){
-        //     $product_Validation->insertBook($sku, $name, $price, $book_weight);
-        // } elseif(!isset($_SESSION['w_error'])){
-        //     $product_Validation->InsertFurniture($sku, $name, $price, $height, $width, $length);
-        // }
-
-        // !isset($_SESSION['mb_error']) ? $product_Validation->insertDvd($sku, $name, $price, $size_mb)
-        // : (!isset($_SESSION['boo_error'])
-        // ? $product_Validation->insertBook($sku, $name, $price, $book_weight)
-        // : (!isset($_SESSION['w_error'])
-        // ? $product_Validation->InsertFurniture($sku, $name, $price, $height, $width, $length) : die ) );
-
         $products = [
             'dvd' => new DVD(),
             'book' => new Book(),
-            'furniture' => new Furniture()
+            'furniture' => new Furniture(),
+            'none' => new NoneValidator()
         ];
 
 
         $product = $_POST['product'];
 
         $productClass = $products[$product];
-        // $productClass->validation($sku, $name, $price, $size_mb);
         $productClass->add($_POST);
     }
 }

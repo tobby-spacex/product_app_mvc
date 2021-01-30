@@ -38,13 +38,19 @@
 </div>
 
 <small class="error"> <?php
-// if(isset($_SESSION['mb_error']) || isset($_SESSION['boo_error']) || isset($_SESSION['h_error']) || isset($_SESSION['w_error']) || isset($_SESSION['l_error'])){
-//     echo 'Please select the type of product with the correct specifications';
-// }
     $warning = "Please select the type of product with the correct specifications";
     $warning = (isset($_SESSION['mb_error']) || isset($_SESSION['boo_error']) || isset($_SESSION['h_error']) || isset($_SESSION['w_error']) || isset($_SESSION['l_error']))
     ?  $warning : null;
     echo "$warning";
+
+     if(isset($_SESSION['type'])){
+       if($_SESSION['type'] == 'none'){
+            echo "Please select the type of product with the correct specifications";
+        }else{
+            echo "Problem";
+        }
+        unset($_SESSION['type']);
+    }
 ?></small>
 
 
@@ -53,7 +59,7 @@
         <div class="form-group">
         <label for="inputState">Type Switcher</label> <span class="error">*</span>
         <select name="product"  id="inputState" class="form-group" > <span class="error">TEST</span>
-            <option selected>Type Switcher</option>
+            <option value="none" selected>Type Switcher</option>
             <option value="dvd">DVD</option>
             <option value="book">Book</option>
             <option value="furniture">Furniture</option>

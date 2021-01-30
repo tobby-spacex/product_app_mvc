@@ -1,9 +1,14 @@
 <?php
 
+session_start();
 class Book extends Main_Product_Validation
 {
     public static function  redirectToaddPage(){
         header("Location: http://product-app/product_add");
+    }
+
+    public static function  redirectToMainPage(){
+        header("Location: http://product-app/");
     }
 
     public function add($data)
@@ -11,6 +16,7 @@ class Book extends Main_Product_Validation
         if ($this->validation($data))
         {
             $this->saveDb($data);
+            Book :: redirectToMainPage();
         };
         return false;
     }

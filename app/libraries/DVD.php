@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 class DVD extends Main_Product_Validation
 {
     public function __construct(){
@@ -10,11 +11,16 @@ class DVD extends Main_Product_Validation
         header("Location: http://product-app/product_add");
     }
 
+    public static function  redirectToMainPage(){
+        header("Location: http://product-app/");
+    }
+
     public function add($data)
     {
         if ($this->validation($data))
         {
             $this->saveDb($data);
+            Dvd :: redirectToMainPage();
         };
         return false;
     }
