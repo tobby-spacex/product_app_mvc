@@ -16,7 +16,7 @@ class Product_add extends Controller{
         $price = filter_input(INPUT_POST, 'price');
         $size_mb = filter_input(INPUT_POST, 'size_mb');
 
-            $book_weight = filter_input(INPUT_POST, 'b_weight');
+        $book_weight = filter_input(INPUT_POST, 'b_weight');
 
         $height = filter_input(INPUT_POST, 'height');
         $width = filter_input(INPUT_POST, 'width');
@@ -48,9 +48,9 @@ class Product_add extends Controller{
         // ? $product_Validation->InsertFurniture($sku, $name, $price, $height, $width, $length) : die ) );
 
         $products = [
-            'dvd' => new DVD()
-            // 'book' => new Book(),
-            // 'furniture' => new Furniture()
+            'dvd' => new DVD(),
+            'book' => new Book(),
+            'furniture' => new Furniture()
         ];
 
 

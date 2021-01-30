@@ -1,11 +1,7 @@
 <?php
 
-class DVD extends Main_Product_Validation
+class Book extends Main_Product_Validation
 {
-    public function __construct(){
-
-    }
-
     public static function  redirectToaddPage(){
         header("Location: http://product-app/product_add");
     }
@@ -21,25 +17,16 @@ class DVD extends Main_Product_Validation
 
     protected function saveDb($data)
     {
-        $dvd = new Product_Dvd();
-        $dvd->setSku($data['sku']);
-        $dvd->setName($data['name']);
-        $dvd->setPrice($data['price']);
-        $dvd->setSize($data['size_mb']);
-        $dvd->insertProducts();
+        $book = new Product_Book();
+        $book->setSku($data['sku']);
+        $book->setName($data['name']);
+        $book->setPrice($data['price']);
+        $book->setWeight($data['b_weight']);
+        $book->insertProducts();
     }
 
-    protected function validation($data){   //$sku, $name, $price, $size_mb
 
-        // $fields = ['sku', 'name', 'price' , 'size_mb'];
-        // foreach ($fields as $field) {
-        //     if (!isset($data[$field]))
-        //     {
-        //         return false;
-        //     }
-        // }
-        // return true;
-
+    protected function validation($data){
 
         if(empty($data['sku'])){
             $_SESSION['sku_error']='Please insert SKU.';
@@ -62,19 +49,19 @@ class DVD extends Main_Product_Validation
         }
 
 
-        if(empty($data['size_mb'])){
-            $_SESSION['mb_error']='*Please insert DVD size.';
-        }elseif(preg_match( "/[^0-9]/", $data['size_mb'])){
-            $_SESSION['mb_error']='Only integer numbers are allowed.';
+        if(empty($data['b_weight'])){
+            $_SESSION['boo_error']='*Please insert Book size.';
+        }elseif(preg_match( "/[^0-9]/", $$data['b_weight'])){
+            $_SESSION['boo_error']='Only integers and rational numbers are allowed.';
         }
 
-        Dvd :: redirectToaddPage();
+        Book :: redirectToaddPage();
 
         if(!isset($_SESSION['sku_error']) && !isset($_SESSION['name_error']) && !isset($_SESSION['price_error'])
-        && !isset($_SESSION['mb_error'])){
+        && !isset($_SESSION['boo_error'])){
             return true;
         }
 
-
     }
+
 }

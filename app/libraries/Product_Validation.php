@@ -94,7 +94,7 @@ class Product_Validation
         : ((preg_match( "/[^0-9,.]/", $width)) ? $_SESSION['w_error']='Only integers and rational numbers are allowed.': Product_Validation :: redirectToaddPage());
 
         $furVal3 = (empty($length)) ? $_SESSION['l_error']='*Please insert Furniture lenght.'
-        : ((preg_match( "/[^0-9,.]/", $length)) ? $_SESSION['w_error']='Only integers and rational numbers are allowed.': Product_Validation :: redirectToaddPage());
+        : ((preg_match( "/[^0-9,.]/", $length)) ? $_SESSION['l_error']='Only integers and rational numbers are allowed.': Product_Validation :: redirectToaddPage());
 
 
         Product_Validation :: redirectToaddPage();
