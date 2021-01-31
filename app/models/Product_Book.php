@@ -79,6 +79,7 @@ class Product_Book extends Main_Product_Class
                 $array[] = $row;
             }
             return $array;
+
     }
 
     public function deleteProductById($product_Id){

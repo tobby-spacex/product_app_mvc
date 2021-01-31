@@ -1,6 +1,6 @@
 <?php
 
-class Product_Dvd extends Main_Product_Class
+class Product_Dvd //extends Main_Product_Class
 {
 
     private $id;
@@ -11,7 +11,8 @@ class Product_Dvd extends Main_Product_Class
 
 
     public function __construct(){
-        parent::__construct();
+        // parent::__construct();
+        $this->db = new Database();
     }
 
     // public function __construct($sku, $name, $price, $size){
@@ -85,22 +86,44 @@ class Product_Dvd extends Main_Product_Class
 
 
    // Method for fetching product from Database
-   public function getProducts($fields, $tablename){
-    $array = array();
-    $query = "SELECT $fields FROM $tablename ";
-    $result = mysqli_query($this->db->getConnection(), $query);
-    while($row = mysqli_fetch_assoc($result)){
-            $array[] = $row;
-        }
-        return $array;
-}
-
+//    public function getProducts($fields, $tablename){
+//     $array = array();
+//     $query = "SELECT $fields FROM $tablename ";
+//     $result = mysqli_query($this->db->getConnection(), $query);
+//     while($row = mysqli_fetch_assoc($result)){
+//             $array[] = $row;
+//         }
+//         return $array;
+// }
 
     public function deleteProductById($product_Id){
         $query = "DELETE FROM dvd WHERE id='$product_Id' ";
         $result = mysqli_query($this->db->getConnection(), $query);
         return $result;
    }
+
+
+
+
+    public function getProducts(){
+        $array = array();
+        $query = "SELECT id, book_sku, book_name, book_price, b_weight, NULL AS f_width, NULL AS f_length FROM book
+        UNION ALL
+        SELECT id, dvd_sku, dvd_name, dvd_price, size_mb, NULL AS f_width, NULL AS f_length FROM dvd
+        UNION ALL
+        SELECT id, f_sku, f_name, f_price, f_height, f_width, f_length FROM furniture
+        ORDER BY 'timestamp' DESC";
+
+        $result = mysqli_query($this->db->getConnection(), $query) or die(mysqli_error($this->db->getConnection()));
+        // var_dump($result);
+        // print_r($result);
+
+        while($row = mysqli_fetch_assoc($result)){
+                $array[] = $row;
+            }
+            return $array;
+
+    }
 
 
 }
