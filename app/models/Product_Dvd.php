@@ -105,25 +105,42 @@ class Product_Dvd //extends Main_Product_Class
 
 
 
-    public function getProducts(){
-        $array = array();
-        $query = "SELECT id, book_sku, book_name, book_price, b_weight, NULL AS f_width, NULL AS f_length FROM book
-        UNION ALL
-        SELECT id, dvd_sku, dvd_name, dvd_price, size_mb, NULL AS f_width, NULL AS f_length FROM dvd
-        UNION ALL
-        SELECT id, f_sku, f_name, f_price, f_height, f_width, f_length FROM furniture
-        ORDER BY 'timestamp' DESC";
+   public function getProducts(){
+    $array = array();
+    $query = "SELECT id, book_sku, book_name, book_price, b_weight, post_time, NULL AS f_width, NULL AS f_length FROM book
+    UNION ALL
+    SELECT id, dvd_sku, dvd_name, dvd_price, size_mb, post_time, NULL AS f_width, NULL AS f_length FROM dvd
+    UNION ALL
+    SELECT id, f_sku, f_name, f_price, f_height, post_time, f_width, f_length FROM furniture ";
+    // ORDER BY 'time' DESC";
 
-        $result = mysqli_query($this->db->getConnection(), $query) or die(mysqli_error($this->db->getConnection()));
-        // var_dump($result);
-        // print_r($result);
+    $result = mysqli_query($this->db->getConnection(), $query) or die(mysqli_error($this->db->getConnection()));
+    // var_dump($result);
+    // print_r($result);
 
-        while($row = mysqli_fetch_assoc($result)){
-                $array[] = $row;
-            }
-            return $array;
+    while($row = mysqli_fetch_assoc($result)){
+            $array[] = $row;
+        }
+        // function sortFunction( $a, $b ) {
+        //     return strtotime($a["post_time"]) < strtotime($b["post_time"]) ? -1 : 1;
+        // }
+        // usort($array, "sortFunction");
+        // // var_dump($array);
+        // return $array;
 
-    }
+        function date_compare($a, $b)
+        {
+            $t1 = strtotime($a['post_time']);
+            $t2 = strtotime($b['post_time']);
+            // $t3 = strtotime($c['post_time']);
+            return $t1 < $t2;
+        }
+        usort($array, 'date_compare');
+        return $array;
+
+
+
+}
 
 
 }
