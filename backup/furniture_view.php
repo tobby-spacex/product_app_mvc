@@ -1,4 +1,5 @@
-    <!-- Fetching furniture -->
+    <!-- FETCHING FURNITURE FILE IS NO LONGER USED-->
+
     <?php
          foreach((array) $data_furniture as $furniture){
     ?>

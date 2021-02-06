@@ -11,6 +11,7 @@ require_once 'DVD.php';
 require_once 'Book.php';
 require_once 'Furniture.php';
 require_once 'NoneValidator.php';
+require_once 'models/Product_Fetch.php';
 require_once 'models/Product_Dvd.php';
 require_once 'models/Product_Book.php';
 require_once 'models/Product_Furniture.php';

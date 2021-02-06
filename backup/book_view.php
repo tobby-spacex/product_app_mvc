@@ -1,6 +1,12 @@
-<!-- Fetching book -->
+<!-- FETCHING BOOK FILE IS NO LONGER USED -->
+
 <?php
-     foreach( (array)$data_book as $book){
+    // $books = array_filter($data_dvd, function ($item) {
+    //   return $item['origin'] === 'book';
+    // });
+     foreach( (array)$books as $book){
+
+
   ?>
 
     <div class="card" style="width: 12rem; height: 12rem;">
@@ -21,3 +27,6 @@
   <?php
         }
   ?>
+
+<?
+

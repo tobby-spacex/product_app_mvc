@@ -7,6 +7,7 @@ class DVD extends Main_Product_Validation
 
     }
 
+
     public static function  redirectToaddPage(){
         header("Location: http://product-app/product_add");
     }
@@ -27,25 +28,17 @@ class DVD extends Main_Product_Validation
 
     protected function saveDb($data)
     {
+
         $dvd = new Product_Dvd();
         $dvd->setSku($data['sku']);
         $dvd->setName($data['name']);
         $dvd->setPrice($data['price']);
         $dvd->setSize($data['size_mb']);
+
         $dvd->insertProducts();
     }
 
-    protected function validation($data){   //$sku, $name, $price, $size_mb
-
-        // $fields = ['sku', 'name', 'price' , 'size_mb'];
-        // foreach ($fields as $field) {
-        //     if (!isset($data[$field]))
-        //     {
-        //         return false;
-        //     }
-        // }
-        // return true;
-
+    protected function validation($data){
 
         if(empty($data['sku'])){
             $_SESSION['sku_error']='Please insert SKU.';

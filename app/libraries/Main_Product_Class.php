@@ -6,7 +6,7 @@ abstract class Main_Product_Class
         $this->db = new Database();
     }
 
-    abstract public function getProducts($fields,$tablename);
+    // abstract public function getProducts($fields,$tablename);
 
     abstract public function insertProducts();
 

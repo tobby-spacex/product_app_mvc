@@ -21,15 +21,8 @@
   </div>
 
 
-<!-- Fetching DVD -->
-<?php include_once 'dvd_view.php'; ?>
-
-<!-- Fetching BOOK -->
-<?php include_once 'book_view.php'; ?>
-
-<!-- Fetching FURNITURE -->
-<?php include_once 'furniture_view.php'; ?>
-
+<!-- Fetching Products -->
+<?php include_once 'product_view.php'; ?>
 
 </form>
 </div> <!-- container -->

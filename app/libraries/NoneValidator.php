@@ -12,8 +12,6 @@ class NoneValidator
         NoneValidator :: redirectToaddPage();
     }
 
-
-
     protected function validation($data){
 
         if(empty($data['sku'])){

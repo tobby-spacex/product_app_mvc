@@ -1,5 +1,6 @@
 <?php
 
+// The book class validates the input and submits the data to the database. DVD and Furniture classes in the libraries folder work in the same analogy.
 session_start();
 class Book extends Main_Product_Validation
 {
@@ -11,6 +12,7 @@ class Book extends Main_Product_Validation
         header("Location: http://product-app/");
     }
 
+    // This method is used in the Product_add class. The first entered data is validated if the validation is successful, the data will be send to the database.
     public function add($data)
     {
         if ($this->validation($data))
@@ -32,6 +34,7 @@ class Book extends Main_Product_Validation
     }
 
 
+    // Nevertheless, I used conditional operators to validate the input data, that is, after the product has already been defined.
     protected function validation($data){
 
         if(empty($data['sku'])){
@@ -57,7 +60,7 @@ class Book extends Main_Product_Validation
 
         if(empty($data['b_weight'])){
             $_SESSION['boo_error']='*Please insert Book size.';
-        }elseif(preg_match( "/[^0-9]/", $$data['b_weight'])){
+        }elseif(preg_match( "/[^0-9]/", $data['b_weight'])){
             $_SESSION['boo_error']='Only integers and rational numbers are allowed.';
         }
 
