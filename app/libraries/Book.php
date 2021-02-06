@@ -46,8 +46,8 @@ class Book extends Main_Product_Validation
 
         if(empty($data['name'])){
             $_SESSION['name_error']='Please insert name.';
-        }elseif(iconv_strlen($data['name']) < 5){
-            $_SESSION['name_error']='name must be at least 3 characters.';
+        }elseif(iconv_strlen($data['name']) < 4){
+            $_SESSION['name_error']='name must be at least 4 characters.';
         }
 
 
